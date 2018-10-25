@@ -1,6 +1,6 @@
 public class Image {
 	String filename;
-	public Image (String filename, Image image)
+	public Image (String filename)
 	{
 		this.filename = filename;
 	}
