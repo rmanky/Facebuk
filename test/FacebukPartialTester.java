@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class FacebukPartialTester {
 	private Person _barack, _michelle, _kevin, _ina, _joe, _malia;
 	private Pet _bo, _sunny;
-	private Moment _meAndBarack;
+	private Moment _meAndBarack, _boAndSunnyMoment;
 	private ArrayList _michelleAndBarack, _michelleJoeBoAndMalia;
 
 	@Before
@@ -112,6 +112,7 @@ public class FacebukPartialTester {
 
 		// Moments
 		_meAndBarack = new Moment("Me & Barack", new Image("MeAndBarack.png"), _michelleAndBarack, michelleAndBarackSmiles);
+		// TODO: Add boAndSunny test _boAndSunnyMoment = new Moment("Bo and Sunny", new Image("BoAndSunny.png"), )
 		final Moment meJoeAndCo = new Moment("Me, Joe & co.", new Image("MeJoeAndCo.png"), _michelleJoeBoAndMalia, michelleJoeBoAndMaliaSmiles);
 
 		final ArrayList michelleMoments = new ArrayList();
@@ -160,7 +161,7 @@ public class FacebukPartialTester {
 
     @Test
     public void testGetFriendWithWhomIAmHappiest3 () {
-	    // TODO: THIS?
+	    assertEquals(_bo.getFriendWithWhomIAmHappiest(), _malia);
     }
 
 	@Test
@@ -210,11 +211,23 @@ public class FacebukPartialTester {
         assertTrue(person2.getFriends().contains(person1));
     }
 
-	// TODO: write more methods to test getFriendWithWhomIAmHappiest
 	// TODO: write more methods to test getOverallHappiestMoment
+    @Test
+    public void testGetOverallHappiestMoment() {
+	    assertEquals(_barack.getOverallHappiestMoment(), _meAndBarack);
+    }
+
+    @Test
+    public void testGetOverallHappiestMoment2() {
+        assertEquals(_michelle.getOverallHappiestMoment(), _meAndBarack);
+    }
+
+    @Test
+    public void testGetOverallHappiestMoment3() {
+
+    }
 
 	// TODO: write methods to test isClique
 	// TODO: write methods to test findMaximumCliqueOfFriends
 
-    // TODO: DO THEM TOMORROW
 }
