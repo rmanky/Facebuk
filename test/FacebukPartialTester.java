@@ -80,7 +80,7 @@ public class FacebukPartialTester {
 		_barack.setFriends(michelleList);
 		_kevin.setFriends(michelleList);
 		_ina.setFriends(michelleList);
-	
+
 		// Finish configuring pets
 		_bo.setFriends(maliaAndSunny);
 		_sunny.setFriends(boList);
@@ -176,10 +176,10 @@ public class FacebukPartialTester {
 
 	// TODO: write more methods to test addFriend
 	// TODO: write more methods to test approve
-	
-	// TODO: write more methods to test getFriendWithWhomIAmHappiest 
-	// TODO: write more methods to test getOverallHappiestMoment 
-	
-	// TODO: write methods to test isClique 
+
+	// TODO: write more methods to test getFriendWithWhomIAmHappiest
+	// TODO: write more methods to test getOverallHappiestMoment
+
+	// TODO: write methods to test isClique
 	// TODO: write methods to test findMaximumCliqueOfFriends
 }
