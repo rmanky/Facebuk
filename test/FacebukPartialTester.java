@@ -154,6 +154,16 @@ public class FacebukPartialTester {
 	}
 
 	@Test
+    public void testGetFriendWithWhomIAmHappiest2 () {
+	    assertEquals(_michelle.getFriendWithWhomIAmHappiest(), _barack);
+    }
+
+    @Test
+    public void testGetFriendWithWhomIAmHappiest3 () {
+	    // TODO: THIS?
+    }
+
+	@Test
 	public void testFriendRequest1 () {
 		Person person1 = new Person("person1", new Image("person1.png"));
 		Person person2 = new Person("person2", new Image("person2.png"));
@@ -174,21 +184,31 @@ public class FacebukPartialTester {
 		friendRequest.approve(person3);
 	}
 
-	@Test // Check that both parties must accept the friend request
-	public void testFriendRequest3 () {
-		Person person1 = new Person("person1", new Image("person1.png"));
-		Person person2 = new Person("person2", new Image("person2.png"));
-		FriendRequest friendRequest = new FriendRequest(person1, person2);
-		friendRequest.approve(person2);
-		assertEquals(person1.getFriends().size(), 0);
-		assertEquals(person2.getFriends().size(), 0);
-		friendRequest.approve(person1); // Both parties have accepted, now friends should be added
-		assertTrue(person1.getFriends().contains(person2));
-		assertTrue(person2.getFriends().contains(person1));
-	}
+	@Test
+	public void testAddFriend () {
+        Person person1 = new Person("person1", new Image("person1.png"));
+        Person person2 = new Person("person2", new Image("person2.png"));
+        Person person3 = new Person("person3", new Image("person3.png"));
+        person1.addFriend(person2);
+        person1.addFriend(person3);
+        assertEquals(person1.getFriends().size(), 2); // Person 1 should have 2 friends
+        assertEquals(person2.getFriends().size(), 0); // Person 2 should have 0 friends
+        person2.addFriend(person1);
+        assertEquals(person2.getFriends().size(), 1); // Person 2 should now have 1 friend
+    }
 
-	// TODO: write more methods to test addFriend
-	// TODO: write more methods to test approve
+    @Test // Check that both parties must accept the friend request
+    public void testApprove () {
+        Person person1 = new Person("person1", new Image("person1.png"));
+        Person person2 = new Person("person2", new Image("person2.png"));
+        FriendRequest friendRequest = new FriendRequest(person1, person2);
+        friendRequest.approve(person2);
+        assertEquals(person1.getFriends().size(), 0);
+        assertEquals(person2.getFriends().size(), 0);
+        friendRequest.approve(person1); // Both parties have accepted, now friends should be added
+        assertTrue(person1.getFriends().contains(person2));
+        assertTrue(person2.getFriends().contains(person1));
+    }
 
 	// TODO: write more methods to test getFriendWithWhomIAmHappiest
 	// TODO: write more methods to test getOverallHappiestMoment

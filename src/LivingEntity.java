@@ -40,9 +40,12 @@ public class LivingEntity extends Entity {
     }
 
    public Moment getOverallHappiestMoment() {
-        Moment happiestMoment = (Moment) _momentList.get(0);
+        Moment happiestMoment = null;
         for(Object moment : _momentList) {
             Moment currentMoment = (Moment) moment;
+            if(happiestMoment == null) {
+                happiestMoment = currentMoment;
+            }
             if(currentMoment.getAverageHappiness() > happiestMoment.getAverageHappiness()) {
                 happiestMoment = currentMoment;
             }

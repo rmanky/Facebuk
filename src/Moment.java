@@ -24,7 +24,7 @@ public class Moment extends Entity {
                 return (float) _smileValues.get(i);
             }
         }
-        return -1;
+        return 0;
     }
 
     public float getAverageHappiness() {

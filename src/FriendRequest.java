@@ -13,17 +13,14 @@ public class FriendRequest {
         if(livingEntity.equals(_le1)) {
             _firstAccepted = true;
         }
-
         if(livingEntity.equals(_le2)) {
             _secondAccepted = true;
         }
-
         if(_secondAccepted && _firstAccepted)
         {
             _le1.addFriend(_le2);
             _le2.addFriend(_le1);
         }
-
         else if(!livingEntity.equals(_le1) && !livingEntity.equals(_le2)){
             throw new IllegalArgumentException("Friend not found.");
         }

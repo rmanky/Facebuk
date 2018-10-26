@@ -8,9 +8,12 @@ public class Entity {
         _image = image;
     }
 
-    public String getName()
-    {
+    public String getName() {
         return _name;
+    }
+
+    public Image getImage() {
+        return _image;
     }
 
     // TODO: Is this needed?
