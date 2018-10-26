@@ -9,11 +9,12 @@ import java.util.ArrayList;
  * Make absolute sure that your code can compile together with this tester!
  * If it does not, you may get a very low grade for your assignment.
  */
+
 public class FacebukPartialTester {
 	private Person _barack, _michelle, _kevin, _ina, _joe, _malia;
 	private Pet _bo, _sunny;
-	private Moment _meAndBarack, _boAndSunnyMoment;
-	private ArrayList _michelleAndBarack, _michelleJoeBoAndMalia;
+	private Moment _meAndBarack, _meAndKevin, _barackAndKevinMoment;
+	private ArrayList _michelleAndBarack, _michelleJoeBoAndMalia, _michelleAndKevin, _barackAndKevin;
 
 	@Before
 	public void setUp () {
@@ -52,6 +53,14 @@ public class FacebukPartialTester {
 		_michelleAndBarack = new ArrayList();
 		_michelleAndBarack.add(_michelle);
 		_michelleAndBarack.add(_barack);
+
+		_barackAndKevin = new ArrayList();
+		_barackAndKevin.add(_barack);
+		_barackAndKevin.add(_kevin);
+
+		_michelleAndKevin = new ArrayList();
+		_michelleAndKevin.add(_michelle);
+		_michelleAndKevin.add(_kevin);
 
 		// Michelle, Joe, Bo, and Malia
 		_michelleJoeBoAndMalia = new ArrayList();
@@ -110,9 +119,18 @@ public class FacebukPartialTester {
 		michelleJoeBoAndMaliaSmiles.add(0.4f);
 		michelleJoeBoAndMaliaSmiles.add(0.5f);
 
+		final ArrayList michelleKevinSmiles = new ArrayList();
+		michelleKevinSmiles.add(0.1f);
+		michelleKevinSmiles.add(0.3f);
+
+		final ArrayList barackKevinSmiles = new ArrayList();
+		barackKevinSmiles.add(0.9f);
+		barackKevinSmiles.add(0.8f);
+
 		// Moments
 		_meAndBarack = new Moment("Me & Barack", new Image("MeAndBarack.png"), _michelleAndBarack, michelleAndBarackSmiles);
-		// TODO: Add boAndSunny test _boAndSunnyMoment = new Moment("Bo and Sunny", new Image("BoAndSunny.png"), )
+		_meAndKevin = new Moment("Me & Kevin", new Image("MeAndKevin.png"), _michelleAndKevin, michelleKevinSmiles);
+		_barackAndKevinMoment = new Moment("Barack & Kevin", new Image("Barack&Kevin.png"), _barackAndKevin, barackKevinSmiles);
 		final Moment meJoeAndCo = new Moment("Me, Joe & co.", new Image("MeJoeAndCo.png"), _michelleJoeBoAndMalia, michelleJoeBoAndMaliaSmiles);
 
 		final ArrayList michelleMoments = new ArrayList();
@@ -135,6 +153,11 @@ public class FacebukPartialTester {
 		final ArrayList boMoments = new ArrayList();
 		boMoments.add(meJoeAndCo);
 		_bo.setMoments(boMoments);
+
+		final ArrayList kevinMoments = new ArrayList();
+		kevinMoments.add(_meAndKevin);
+		kevinMoments.add(_barackAndKevinMoment);
+		_kevin.setMoments(kevinMoments);
 	}
 
 	@Test
@@ -211,7 +234,6 @@ public class FacebukPartialTester {
         assertTrue(person2.getFriends().contains(person1));
     }
 
-	// TODO: write more methods to test getOverallHappiestMoment
     @Test
     public void testGetOverallHappiestMoment() {
 	    assertEquals(_barack.getOverallHappiestMoment(), _meAndBarack);
@@ -224,7 +246,7 @@ public class FacebukPartialTester {
 
     @Test
     public void testGetOverallHappiestMoment3() {
-
+        assertEquals(_kevin.getOverallHappiestMoment(), _barackAndKevinMoment);
     }
 
 	// TODO: write methods to test isClique
