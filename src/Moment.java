@@ -23,11 +23,21 @@ public class Moment extends Entity {
     }
 
     public float getHappiness(LivingEntity livingEntity) {
-        for (int i = 0; i < momentParticipants.size(); i++) {
-            if (livingEntity.equals(momentParticipants.get(i))) {
-                return (float) smileValues.get(i);
+        for (int i = 0; i < this.momentParticipants.size(); i++) {
+            if (livingEntity.equals(this.momentParticipants.get(i))) {
+                return (float) this.smileValues.get(i);
             }
         }
         return -1;
+    }
+
+    public float getAverageHappiness() {
+        float total = 0;
+
+        for (Object happinessValue : this.smileValues) {
+            total += (float) happinessValue;
+        }
+
+        return total / this.smileValues.size();
     }
 }

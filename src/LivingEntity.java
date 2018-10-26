@@ -46,8 +46,18 @@ public class LivingEntity extends Entity {
         return friend;
     }
 
-   // public Moment getOverallHappiestMoment() {
-    //    return;
-    //}
+   public Moment getOverallHappiestMoment() {
+
+        Moment happiestMoment = (Moment) this.momentList.get(0);
+
+        for(Object moment : this.momentList) {
+            Moment currentMoment = (Moment) moment;
+            if(currentMoment.getAverageHappiness() > happiestMoment.getAverageHappiness()) {
+                happiestMoment = currentMoment;
+            }
+        }
+
+       return happiestMoment;
+    }
 
 }
