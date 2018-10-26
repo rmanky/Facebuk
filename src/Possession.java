@@ -5,17 +5,17 @@ public class Possession extends Entity {
 
     public Possession(String name, Image image, float price) {
         super(name, image);
-        this.possessionPrice = price;
+        possessionPrice = price;
     }
 
     public void setOwner(Person owner)
     {
-        this.possessionOwner = owner;
+        possessionOwner = owner;
     }
 
     public float getPrice()
     {
-        return this.possessionPrice;
+        return possessionPrice;
     }
 
 }

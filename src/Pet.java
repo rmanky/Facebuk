@@ -7,7 +7,7 @@ public class Pet extends LivingEntity {
     }
 
     public void setOwner(Person owner){
-        this.petOwner = owner;
+        petOwner = owner;
     }
 
 

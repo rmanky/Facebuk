@@ -10,11 +10,11 @@ public class Person extends LivingEntity {
     }
 
     public void setPets(ArrayList pets) {
-        this.personPets = pets;
+        personPets = pets;
     }
 
     public void setPossessions (ArrayList possessions)
     {
-        this.personPossessions = possessions;
+        personPossessions = possessions;
     }
 }

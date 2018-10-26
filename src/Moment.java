@@ -7,25 +7,25 @@ public class Moment extends Entity {
     private ArrayList momentParticipants;
     private ArrayList smileValues;
 
-    public Moment(String name, Image image, ArrayList participants, ArrayList smileValues)
+    public Moment(String name, Image image, ArrayList participants, ArrayList smiles)
     {
         super(name, image);
-        this.momentParticipants = participants;
-        this.smileValues = smileValues;
+        momentParticipants = participants;
+        smileValues = smiles;
     }
 
     public ArrayList getParticipants() {
-        return this.momentParticipants;
+        return momentParticipants;
     }
 
     public ArrayList getSmileValues() {
-        return this.smileValues;
+        return smileValues;
     }
 
     public float getHappiness(LivingEntity livingEntity) {
-        for (int i = 0; i < this.momentParticipants.size(); i++) {
-            if (livingEntity.equals(this.momentParticipants.get(i))) {
-                return (float) this.smileValues.get(i);
+        for (int i = 0; i < momentParticipants.size(); i++) {
+            if (livingEntity.equals(momentParticipants.get(i))) {
+                return (float) smileValues.get(i);
             }
         }
         return -1;
@@ -34,10 +34,10 @@ public class Moment extends Entity {
     public float getAverageHappiness() {
         float total = 0;
 
-        for (Object happinessValue : this.smileValues) {
+        for (Object happinessValue : smileValues) {
             total += (float) happinessValue;
         }
 
-        return total / this.smileValues.size();
+        return total / smileValues.size();
     }
 }

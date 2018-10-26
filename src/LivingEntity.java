@@ -10,15 +10,15 @@ public class LivingEntity extends Entity {
     }
 
     public void setFriends(ArrayList friends) {
-        this.friendList = friends;
+        friendList = friends;
     }
 
     public void setMoments(ArrayList moments) {
-        this.momentList = moments;
+        momentList = moments;
     }
 
     public ArrayList getFriends() {
-        return this.friendList;
+        return friendList;
     }
 
     public void addFriend(LivingEntity friend) {
@@ -29,11 +29,11 @@ public class LivingEntity extends Entity {
 
         LivingEntity friend = null;
 
-        for (Object moment : this.momentList) {
+        for (Object moment : momentList) {
             ArrayList momentParticipants = ((Moment) moment).getParticipants();
 
             float myHappiness = ((Moment) moment).getHappiness(this);
-            float maxHappiness = -1;
+            float maxHappiness = 0;
 
             for (Object livingEntity : momentParticipants) {
                 float theirHappiness = ((Moment) moment).getHappiness((LivingEntity) livingEntity);
@@ -48,9 +48,9 @@ public class LivingEntity extends Entity {
 
    public Moment getOverallHappiestMoment() {
 
-        Moment happiestMoment = (Moment) this.momentList.get(0);
+        Moment happiestMoment = (Moment) momentList.get(0);
 
-        for(Object moment : this.momentList) {
+        for(Object moment : momentList) {
             Moment currentMoment = (Moment) moment;
             if(currentMoment.getAverageHappiness() > happiestMoment.getAverageHappiness()) {
                 happiestMoment = currentMoment;

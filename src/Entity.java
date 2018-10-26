@@ -4,12 +4,12 @@ public class Entity {
     private Image entityImage;
 
     public Entity(String name, Image image){
-        this.entityName = name;
-        this.entityImage = image;
+        entityName = name;
+        entityImage = image;
     }
 
-    public boolean equals(Object o)
-    {
-        return this.entityName == ((Entity) o).entityName;
+    // TODO: Is this needed?
+    public boolean equals(Object o) {
+        return ((Entity) o).entityName.equals(this.entityName);
     }
 }
