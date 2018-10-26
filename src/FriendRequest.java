@@ -1,30 +1,31 @@
 public class FriendRequest {
 
-    private LivingEntity le1;
-    private LivingEntity le2;
-    private boolean firstAccepted;
-    private boolean secondAccepted;
+    private LivingEntity _le1, _le2;
+    private boolean _firstAccepted , _secondAccepted;
 
     public FriendRequest(LivingEntity entity1, LivingEntity entity2) {
-        le1 = entity1;
-        le2 = entity2;
+        _le1 = entity1;
+        _le2 = entity2;
     }
 
-
+    // TODO: Both parties must accept the request
     public void approve(LivingEntity livingEntity) {
-
-        if(livingEntity.equals(le1)) {
-            firstAccepted = true;
-            throw new Error("First Accepted");
+        if(livingEntity.equals(_le1)) {
+            _firstAccepted = true;
         }
 
-        if(livingEntity.equals(le2)) {
-            secondAccepted = true;
+        if(livingEntity.equals(_le2)) {
+            _secondAccepted = true;
         }
 
-        else {
-            throw new IllegalArgumentException("Friend not found");
+        if(_secondAccepted && _firstAccepted)
+        {
+            _le1.addFriend(_le2);
+            _le2.addFriend(_le1);
+        }
+
+        else if(!livingEntity.equals(_le1) && !livingEntity.equals(_le2)){
+            throw new IllegalArgumentException("Friend not found.");
         }
     }
-
 }

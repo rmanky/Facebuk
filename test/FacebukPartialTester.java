@@ -174,14 +174,14 @@ public class FacebukPartialTester {
 		friendRequest.approve(person3);
 	}
 
-	@Test(expected = NullPointerException.class) // Check that both parties must accept the friend request
+	@Test // Check that both parties must accept the friend request
 	public void testFriendRequest3 () {
 		Person person1 = new Person("person1", new Image("person1.png"));
 		Person person2 = new Person("person2", new Image("person2.png"));
 		FriendRequest friendRequest = new FriendRequest(person1, person2);
 		friendRequest.approve(person2);
-		person1.getFriends().contains(person2); // Should be null
-		person2.getFriends().contains(person1); // Should also be null
+		assertEquals(person1.getFriends().size(), 0);
+		assertEquals(person2.getFriends().size(), 0);
 		friendRequest.approve(person1); // Both parties have accepted, now friends should be added
 		assertTrue(person1.getFriends().contains(person2));
 		assertTrue(person2.getFriends().contains(person1));

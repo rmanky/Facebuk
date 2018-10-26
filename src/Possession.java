@@ -1,21 +1,23 @@
 public class Possession extends Entity {
 
-    private float possessionPrice;
-    private Person possessionOwner;
+    private float _price;
+    private Person _owner;
 
     public Possession(String name, Image image, float price) {
         super(name, image);
-        possessionPrice = price;
+        _price = price;
     }
 
-    public void setOwner(Person owner)
-    {
-        possessionOwner = owner;
+    public void setOwner(Person owner) {
+        _owner = owner;
     }
 
-    public float getPrice()
-    {
-        return possessionPrice;
+    public float getPrice() {
+        return _price;
+    }
+
+    public Person getOwner() {
+        return _owner;
     }
 
 }

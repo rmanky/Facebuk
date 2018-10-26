@@ -1,31 +1,27 @@
-import sun.security.ssl.Debug;
-
 import java.util.ArrayList;
 
 public class Moment extends Entity {
 
-    private ArrayList momentParticipants;
-    private ArrayList smileValues;
+    private ArrayList _participants, _smileValues;
 
-    public Moment(String name, Image image, ArrayList participants, ArrayList smiles)
-    {
+    public Moment(String name, Image image, ArrayList participants, ArrayList smiles) {
         super(name, image);
-        momentParticipants = participants;
-        smileValues = smiles;
+        _participants = participants;
+        _smileValues = smiles;
     }
 
     public ArrayList getParticipants() {
-        return momentParticipants;
+        return _participants;
     }
 
     public ArrayList getSmileValues() {
-        return smileValues;
+        return _smileValues;
     }
 
     public float getHappiness(LivingEntity livingEntity) {
-        for (int i = 0; i < momentParticipants.size(); i++) {
-            if (livingEntity.equals(momentParticipants.get(i))) {
-                return (float) smileValues.get(i);
+        for (int i = 0; i < _participants.size(); i++) {
+            if (livingEntity.equals(_participants.get(i))) {
+                return (float) _smileValues.get(i);
             }
         }
         return -1;
@@ -33,11 +29,9 @@ public class Moment extends Entity {
 
     public float getAverageHappiness() {
         float total = 0;
-
-        for (Object happinessValue : smileValues) {
+        for (Object happinessValue : _smileValues) {
             total += (float) happinessValue;
         }
-
-        return total / smileValues.size();
+        return total / _smileValues.size();
     }
 }

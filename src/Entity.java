@@ -1,15 +1,21 @@
 public class Entity {
 
-    private String entityName;
-    private Image entityImage;
+    private String _name;
+    private Image _image;
 
     public Entity(String name, Image image){
-        entityName = name;
-        entityImage = image;
+        _name = name;
+        _image = image;
+    }
+
+    public String getName()
+    {
+        return _name;
     }
 
     // TODO: Is this needed?
+    @Override
     public boolean equals(Object o) {
-        return ((Entity) o).entityName.equals(this.entityName);
+        return ((Entity) o).getName().equals(_name);
     }
 }
