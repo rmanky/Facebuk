@@ -5,9 +5,7 @@ public class LivingEntity extends Entity {
     private ArrayList friendList;
     private ArrayList momentList;
 
-    public LivingEntity(String name, Image image) {
-        super(name, image);
-    }
+    public LivingEntity(String name, Image image) { super(name, image); }
 
     public void setFriends(ArrayList friends) {
         friendList = friends;

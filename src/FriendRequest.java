@@ -10,7 +10,7 @@ public class FriendRequest {
         le2 = entity2;
     }
 
-    // TODO: Both parties must accept the request
+
     public void approve(LivingEntity livingEntity) {
 
         if(livingEntity.equals(le1)) {
@@ -23,7 +23,7 @@ public class FriendRequest {
         }
 
         else {
-            throw new IllegalArgumentException("What?");
+            throw new IllegalArgumentException("Friend not found");
         }
     }
 
