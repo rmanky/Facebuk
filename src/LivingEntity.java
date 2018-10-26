@@ -1,11 +1,28 @@
-public class LivingEntity {
+import java.util.ArrayList;
 
-    private String name;
-    private Image image;
+public class LivingEntity extends Entity {
+
+    private ArrayList friendList;
+    private ArrayList momentList;
 
     public LivingEntity(String name, Image image) {
-        this.name = name;
-        this.image = image;
+        super(name, image);
+    }
+
+    public void setFriends (ArrayList friends) {
+        this.friendList = friends;
+    }
+
+    public void setMoments (ArrayList moments) {
+        this.momentList = moments;
+    }
+
+    public ArrayList getFriends() {
+        return this.friendList;
+    }
+
+    void addFriend (LivingEntity friend) {
+        friendList.add(friend);
     }
 
 }
