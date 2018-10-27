@@ -68,11 +68,13 @@ public class LivingEntity extends Entity {
             if(member.getFriends().size() == 0)
             {
                 allFriends = false;
+                break;
             }
-            if(!allFriends) {
+            else {
                 for (LivingEntity friend : (ArrayList<LivingEntity>) member.getFriends()) {
                     if (!member.getFriends().contains(friend)) {
                         allFriends = false;
+                        break;
                     }
                 }
             }
