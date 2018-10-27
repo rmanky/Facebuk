@@ -1,6 +1,3 @@
-import org.omg.PortableServer.LIFESPAN_POLICY_ID;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class LivingEntity extends Entity {
@@ -23,7 +20,9 @@ public class LivingEntity extends Entity {
     }
 
     public void addFriend(LivingEntity friend) {
-        _friendList.add(friend);
+        if(!_friendList.contains(friend)) {
+            _friendList.add(friend);
+        }
     }
 
     public LivingEntity getFriendWithWhomIAmHappiest() {
@@ -59,8 +58,6 @@ public class LivingEntity extends Entity {
     public ArrayList findMaximumCliqueOfFriends() {
         ArrayList fullClique = new ArrayList();
 
-
-
         return fullClique;
     }
 
@@ -68,9 +65,15 @@ public class LivingEntity extends Entity {
         boolean allFriends = true;
 
         for (LivingEntity member : (ArrayList<LivingEntity>) set) {
-            for (LivingEntity friend : (ArrayList<LivingEntity>) member.getFriends()) {
-                if(!member.getFriends().contains(friend)) {
-                    allFriends = false;
+            if(member.getFriends().size() == 0)
+            {
+                allFriends = false;
+            }
+            if(!allFriends) {
+                for (LivingEntity friend : (ArrayList<LivingEntity>) member.getFriends()) {
+                    if (!member.getFriends().contains(friend)) {
+                        allFriends = false;
+                    }
                 }
             }
         }

@@ -250,6 +250,20 @@ public class FacebukPartialTester {
     }
 
 	// TODO: write methods to test isClique
+    @Test
+    public void testIsClique() {
+	    assertEquals(LivingEntity.isClique(_barackAndKevin), true);
+    }
+
+    @Test
+    public void testIsClique2() {
+        Person person1 = new Person("person1", new Image("person1.png"));
+        Person person2 = new Person("person2", new Image("person2.png"));
+        ArrayList personAndPerson = new ArrayList();
+        personAndPerson.add(person1);
+        personAndPerson.add(person2);
+	    assertEquals(LivingEntity.isClique(personAndPerson), false);
+    }
 	// TODO: write methods to test findMaximumCliqueOfFriends
 
 }
