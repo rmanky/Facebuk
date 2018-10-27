@@ -8,7 +8,6 @@ public class FriendRequest {
         _le2 = entity2;
     }
 
-    // TODO: Both parties must accept the request
     public void approve(LivingEntity livingEntity) {
         if(livingEntity.equals(_le1)) {
             _firstAccepted = true;

@@ -16,7 +16,6 @@ public class Entity {
         return _image;
     }
 
-    // TODO: Is this needed?
     @Override
     public boolean equals(Object o) {
         return ((Entity) o).getName().equals(_name);

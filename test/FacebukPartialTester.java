@@ -249,7 +249,6 @@ public class FacebukPartialTester {
         assertEquals(_kevin.getOverallHappiestMoment(), _barackAndKevinMoment);
     }
 
-	// TODO: write methods to test isClique
     @Test
     public void testIsClique() {
 	    assertEquals(LivingEntity.isClique(_barackAndKevin), true);
@@ -264,7 +263,6 @@ public class FacebukPartialTester {
         personAndPerson.add(person2);
 	    assertEquals(LivingEntity.isClique(personAndPerson), false);
     }
-	// TODO: write methods to test findMaximumCliqueOfFriends
 
 	@Test
 	public void testFindMaximumCliqueOfFriends() {
