@@ -56,7 +56,7 @@ public class LivingEntity extends Entity {
     }
 
     public ArrayList findMaximumCliqueOfFriends() {
-
+// TODO: FIX THIS, THANKS
     }
 
     public static boolean isClique (ArrayList set) {
