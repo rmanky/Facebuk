@@ -56,7 +56,22 @@ public class LivingEntity extends Entity {
     }
 
     public ArrayList findMaximumCliqueOfFriends() {
-// TODO: FIX THIS, THANKS
+        ArrayList fullClique = new ArrayList();
+
+        for (int i = 0; i < _friendList.size(); i++) {
+            LivingEntity friend = (LivingEntity) _friendList.get(i);
+            boolean allFriends = true;
+
+            for (int j = 0; j < _friendList.size(); j++) {
+                if (!friend.getFriends().contains(_friendList.get(j)))   // if friend's _friendList doesn't contain a friend from the original
+                    allFriends = false;                                  // _friendList then allFriends is set to false, meaning friend won't
+            }                                                            // be added to fullClique
+
+            if (allFriends = true)
+                fullClique.add(friend);
+        }
+
+        return fullClique;
     }
 
     public static boolean isClique (ArrayList set) {
