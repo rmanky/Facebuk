@@ -312,9 +312,44 @@ public class FacebukPartialTester {
 		person2.addFriend(person1);
 		// person 2 and pet 1 aren't friends, so shouldn't be in the clique
 		ArrayList person1Clique = new ArrayList();
-		person1Clique.add(person2);
+		person1Clique.add(pet1);
 		assertEquals(person1.findMaximumCliqueOfFriends(), person1Clique);
-
 	}
 
+	@Test
+	public void testFindMaximumCliqueOfFriends4() {
+		Person p1 = new Person("p1", new Image("p1.png"));
+        Person p2 = new Person("p2", new Image("p2.png"));
+        Person p3 = new Person("p3", new Image("p3.png"));
+        Person p4 = new Person("p4", new Image("p4.png"));
+        Person p5 = new Person("p5", new Image("p5.png"));
+        Person p6 = new Person("p6", new Image("p6.png"));
+        Person p7 = new Person("p7", new Image("p7.png"));
+        Person p8 = new Person("p8", new Image("p8.png"));
+        p1.addFriend(p2);
+        p2.addFriend(p1);
+        p2.addFriend(p3);
+        p3.addFriend(p2);
+        p2.addFriend(p4);
+        p4.addFriend(p2);
+        p1.addFriend(p4);
+        p4.addFriend(p1);  // NOT
+        p1.addFriend(p6);  // SORRY
+        p6.addFriend(p1);
+        p6.addFriend(p8);
+        p8.addFriend(p6);
+        p1.addFriend(p5);
+        p5.addFriend(p1);
+        p6.addFriend(p5);
+        p5.addFriend(p6);
+        p1.addFriend(p7);
+        p7.addFriend(p1);
+        p6.addFriend(p7);
+        p7.addFriend(p6);
+        ArrayList clique = new ArrayList();
+        clique.add(p6);
+        clique.add(p5);
+        clique.add(p7);
+        assertEquals(p1.findMaximumCliqueOfFriends(), clique);
+	}
 }

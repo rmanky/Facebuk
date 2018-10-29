@@ -1,3 +1,4 @@
+import java.awt.image.AreaAveragingScaleFilter;
 import java.util.ArrayList;
 
 public class LivingEntity extends Entity {
@@ -58,15 +59,37 @@ public class LivingEntity extends Entity {
     }
 
     public ArrayList findMaximumCliqueOfFriends(){
-        ArrayList fullClique = new ArrayList();
-        for (Object friend : _friendList) {
-            if (((LivingEntity) friend).getFriends().contains(this)) {
-                if (!fullClique.contains(friend)) {
-                    fullClique.add(friend);
+        ArrayList cliques = new ArrayList();
+
+        for (Object friendObj : _friendList) {
+            ArrayList currentClique = new ArrayList();
+            LivingEntity friend = (LivingEntity) friendObj;
+            if(friend.getFriends().contains(this))
+            {
+                currentClique.add(friend);
+                for (Object secondLevelFriendObj : friend.getFriends())
+                {
+                    LivingEntity secondLevelFriend = (LivingEntity) secondLevelFriendObj;
+                    if(secondLevelFriend.getFriends().contains(this) && secondLevelFriend.getFriends().contains(friend))
+                    {
+                        currentClique.add(secondLevelFriend);
+                    }
                 }
             }
+            cliques.add(currentClique);
         }
-        return fullClique;
+        // Find biggest clique in cliques
+        ArrayList largestClique = new ArrayList();
+        for (Object cliqueObj : cliques)
+        {
+            ArrayList clique = (ArrayList) cliqueObj;
+            if(clique.size() > largestClique.size())
+            {
+                largestClique = clique;
+            }
+        }
+
+        return largestClique;
     }
 
     public static boolean isClique(ArrayList set) {
