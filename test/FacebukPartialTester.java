@@ -301,4 +301,20 @@ public class FacebukPartialTester {
 		assertEquals(pet1.findMaximumCliqueOfFriends(), pet1Clique);
 	}
 
+	@Test
+	public void testFindMaximumCliqueOfFriends3() {
+		Person person1 = new Person("person1", new Image("person1.png"));
+		Pet pet1 = new Pet("pet1", new Image("pet1.png"));
+		Person person2 = new Person("person2", new Image("person2.png"));
+		person1.addFriend(pet1);
+		person1.addFriend(person2);
+		pet1.addFriend(person1);
+		person2.addFriend(person1);
+		// person 2 and pet 1 aren't friends, so shouldn't be in the clique
+		ArrayList person1Clique = new ArrayList();
+		person1Clique.add(person2);
+		assertEquals(person1.findMaximumCliqueOfFriends(), person1Clique);
+
+	}
+
 }

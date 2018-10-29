@@ -5,7 +5,9 @@ public class LivingEntity extends Entity {
     private ArrayList _friendList = new ArrayList(), _momentList = new ArrayList();
 
 
-    public LivingEntity(String name, Image image) { super(name, image); }
+    public LivingEntity(String name, Image image) {
+        super(name, image);
+    }
 
     public void setFriends(ArrayList friends) {
         _friendList = friends;
@@ -20,7 +22,7 @@ public class LivingEntity extends Entity {
     }
 
     public void addFriend(LivingEntity friend) {
-        if(!_friendList.contains(friend)) {
+        if (!_friendList.contains(friend)) {
             _friendList.add(friend);
         }
     }
@@ -41,25 +43,25 @@ public class LivingEntity extends Entity {
         return friend;
     }
 
-   public Moment getOverallHappiestMoment() {
+    public Moment getOverallHappiestMoment() {
         Moment happiestMoment = null;
-        for(Object moment : _momentList) {
+        for (Object moment : _momentList) {
             Moment currentMoment = (Moment) moment;
-            if(happiestMoment == null) {
+            if (happiestMoment == null) {
                 happiestMoment = currentMoment;
             }
-            if(currentMoment.getAverageHappiness() > happiestMoment.getAverageHappiness()) {
+            if (currentMoment.getAverageHappiness() > happiestMoment.getAverageHappiness()) {
                 happiestMoment = currentMoment;
             }
         }
-       return happiestMoment;
+        return happiestMoment;
     }
 
     public ArrayList findMaximumCliqueOfFriends() {
         ArrayList fullClique = new ArrayList();
         for (Object friend : _friendList) {
-            if(((LivingEntity) friend).getFriends().contains(this)) {
-                if(!fullClique.contains(friend)) {
+            if (((LivingEntity) friend).getFriends().contains(this)) {
+                if (!fullClique.contains(friend)) {
                     fullClique.add(friend);
                 }
             }
@@ -67,16 +69,14 @@ public class LivingEntity extends Entity {
         return fullClique;
     }
 
-    public static boolean isClique (ArrayList set) {
+    public static boolean isClique(ArrayList set) {
         boolean allFriends = true;
 
         for (LivingEntity member : (ArrayList<LivingEntity>) set) {
-            if(member.getFriends().size() == 0)
-            {
+            if (member.getFriends().size() == 0) {
                 allFriends = false;
                 break;
-            }
-            else {
+            } else {
                 for (LivingEntity friend : (ArrayList<LivingEntity>) member.getFriends()) {
                     if (!member.getFriends().contains(friend)) {
                         allFriends = false;
