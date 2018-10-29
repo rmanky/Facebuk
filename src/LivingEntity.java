@@ -57,7 +57,7 @@ public class LivingEntity extends Entity {
         return happiestMoment;
     }
 
-    public ArrayList findMaximumCliqueOfFriends() {
+    public ArrayList findMaximumCliqueOfFriends(){
         ArrayList fullClique = new ArrayList();
         for (Object friend : _friendList) {
             if (((LivingEntity) friend).getFriends().contains(this)) {
