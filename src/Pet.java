@@ -1,12 +1,12 @@
-public class Pet extends LivingEntity {
+class Pet extends LivingEntity {
 
     private Person petOwner;
 
-    public Pet(String name, Image image) {
+    Pet(String name, Image image) {
         super(name, image);
     }
 
-    public void setOwner(Person owner){
+    void setOwner(Person owner){
         petOwner = owner;
     }
 

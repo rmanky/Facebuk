@@ -3,12 +3,12 @@ public class Entity {
     private String _name;
     private Image _image;
 
-    public Entity(String name, Image image){
+    Entity(String name, Image image){
         _name = name;
         _image = image;
     }
 
-    public String getName() {
+    private String getName() {
         return _name;
     }
 

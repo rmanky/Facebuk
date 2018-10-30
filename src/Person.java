@@ -4,15 +4,15 @@ public class Person extends LivingEntity {
 
     private ArrayList _pets, _possessions;
 
-    public Person(String name, Image image) {
+    Person(String name, Image image) {
         super(name, image);
     }
 
-    public void setPets(ArrayList pets) {
+    void setPets(ArrayList pets) {
         _pets = pets;
     }
 
-    public void setPossessions (ArrayList possessions) {
+    void setPossessions(ArrayList possessions) {
         _possessions = possessions;
     }
 

@@ -310,7 +310,7 @@ public class FacebukPartialTester {
 		person1.addFriend(person2);
 		pet1.addFriend(person1);
 		person2.addFriend(person1);
-		// person 2 and pet 1 aren't friends, so shouldn't be in the clique
+		// person 2 and pet 1 aren't friends, so the clique should only consist of person 2
 		ArrayList person1Clique = new ArrayList();
 		person1Clique.add(pet1);
 		assertEquals(person1.findMaximumCliqueOfFriends(), person1Clique);

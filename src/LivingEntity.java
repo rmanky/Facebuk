@@ -1,34 +1,33 @@
-import java.awt.image.AreaAveragingScaleFilter;
 import java.util.ArrayList;
 
-public class LivingEntity extends Entity {
+class LivingEntity extends Entity {
 
     private ArrayList _friendList = new ArrayList(), _momentList = new ArrayList();
 
 
-    public LivingEntity(String name, Image image) {
+    LivingEntity(String name, Image image) {
         super(name, image);
     }
 
-    public void setFriends(ArrayList friends) {
+    void setFriends(ArrayList friends) {
         _friendList = friends;
     }
 
-    public void setMoments(ArrayList moments) {
+    void setMoments(ArrayList moments) {
         _momentList = moments;
     }
 
-    public ArrayList getFriends() {
+    ArrayList getFriends() {
         return _friendList;
     }
 
-    public void addFriend(LivingEntity friend) {
+    void addFriend(LivingEntity friend) {
         if (!_friendList.contains(friend)) {
             _friendList.add(friend);
         }
     }
 
-    public LivingEntity getFriendWithWhomIAmHappiest() {
+    LivingEntity getFriendWithWhomIAmHappiest() {
         LivingEntity friend = null;
         for (Object moment : _momentList) {
             ArrayList momentParticipants = ((Moment) moment).getParticipants();
@@ -44,7 +43,7 @@ public class LivingEntity extends Entity {
         return friend;
     }
 
-    public Moment getOverallHappiestMoment() {
+    Moment getOverallHappiestMoment() {
         Moment happiestMoment = null;
         for (Object moment : _momentList) {
             Moment currentMoment = (Moment) moment;
@@ -58,7 +57,7 @@ public class LivingEntity extends Entity {
         return happiestMoment;
     }
 
-    public ArrayList findMaximumCliqueOfFriends(){
+    ArrayList findMaximumCliqueOfFriends(){
         ArrayList cliques = new ArrayList();
 
         for (Object friendObj : _friendList) {

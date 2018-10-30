@@ -1,8 +1,8 @@
-public class Image {
+class Image {
 
-	String _filename;
+	private String _filename;
 
-	public Image (String filename){
+	Image (String filename){
 		_filename = filename;
 	}
 }
