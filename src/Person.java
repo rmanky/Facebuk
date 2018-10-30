@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Person extends LivingEntity {
+class Person extends LivingEntity {
 
     private ArrayList _pets, _possessions;
 
@@ -16,11 +16,11 @@ public class Person extends LivingEntity {
         _possessions = possessions;
     }
 
-    public ArrayList getPets() {
+    ArrayList getPets() {
         return _pets;
     }
 
-    public ArrayList getPossessions() {
+    ArrayList getPossessions() {
         return _possessions;
     }
 }

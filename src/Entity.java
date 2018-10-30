@@ -1,4 +1,4 @@
-public class Entity {
+class Entity {
 
     private String _name;
     private Image _image;
@@ -8,12 +8,20 @@ public class Entity {
         _image = image;
     }
 
-    private String getName() {
+    String getName() {
         return _name;
     }
 
-    public Image getImage() {
+    void setName(String name) {
+        _name = name;
+    }
+
+    Image getImage() {
         return _image;
+    }
+
+    void setImage(Image image) {
+        _image = image;
     }
 
     @Override

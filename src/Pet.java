@@ -9,7 +9,4 @@ class Pet extends LivingEntity {
     void setOwner(Person owner){
         petOwner = owner;
     }
-
-
-
 }

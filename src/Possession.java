@@ -1,4 +1,4 @@
-public class Possession extends Entity {
+class Possession extends Entity {
 
     private float _price;
     private Person _owner;
@@ -8,16 +8,19 @@ public class Possession extends Entity {
         _price = price;
     }
 
-    void setOwner(Person owner) {
-        _owner = owner;
-    }
-
-    public float getPrice() {
+    float getPrice() {
         return _price;
     }
 
-    public Person getOwner() {
+    void setPrice(float price) {
+        _price = price;
+    }
+
+    Person getOwner() {
         return _owner;
     }
 
+    void setOwner(Person owner) {
+        _owner = owner;
+    }
 }

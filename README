@@ -1,4 +1,21 @@
-In addition to writing Java code that models the objects and relationships described above, you also need
-to describe your rationale for how and why you created the classes that you chose. In particular, in a README file,
-for every class (abstract or concrete) that you use, describe why you use it and what purpose it serves within the
-greater project. Since Person, Possession, Pet, and Moment are all required, you do not need to justify their existence.
+FACEBUK
+
+The Entity class is the parent of every Object that needs a name and an image. This allows us to implement the equals
+method to function between possessions, pets, moments, and people.
+
+The LivingEntity class is the parent of the Pets and Persons, and this class allows us to add functions that are shared
+between Pets and Persons. These functions are addFriend(), getFriendWithWhomIAmHappiest(), getOverallHappiestMoment(),
+findMaximumCliqueOfFriends(), and isClique(). All these functions are shared between Pets and Persons.
+
+The Image class was given, but it just emulates an image path as a string.
+
+The FriendRequest class creates a FriendRequest() between two LivingEntities, and it stores the two living entities
+that formed it as local variables. It also features the approve() method to carry out the actual adding of friends.
+
+These classes helped eliminate redundancy is functions that needed to be shared between two different kinds of Objects,
+such as Pets and Persons, while still keeping some uniqueness to Pets when needed (like owner).
+
+- Robear Mankaryous & Aaron Krueger
+
+
+
